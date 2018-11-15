@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang=en>
+    <head>
+        <meta charset=utf-8>
+        <title>App 1</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    </head>
+    <body>
+        <div id="main">
+        </div>
+        <p><a href="../index.html">Click here to go home.</a></p>
+        <script>
+            $.get('template.html', function(template) {
+                var rendered = Mustache.render(template, 
+                    {title: "Page 1", 
+                     body: "This is the first page.", 
+                     next: "page-2.html", 
+                     nextnum: "2"});
+                $('#main').html(rendered);
+            });
+        </script>
+    </body>
+</html>
