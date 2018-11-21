@@ -7,9 +7,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
     </head>
     <body>
+        <p><a href="../index.html">Click here to go home.</a></p>
         <div id="main">
         </div>
-        <p><a href="../index.html">Click here to go home.</a></p>
         <script>
             $.get('template.html', function(template) {
                 var rendered = Mustache.render(template, 
