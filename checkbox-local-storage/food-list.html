@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang=en>
+    <head>
+        <meta charset=utf-8>
+        <title>Checkbox Local Storage</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <p><a href="../index.html">Click here to go home.</a></p>
+        <h2>You liked these foods:</h4>  
+        <div id="target">
+        </div>  
+        <p><a href="./index.html">Click here to go back.</a></p>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+        <script id="template" type="x-tmpl-mustache">
+            <ul>
+                {{#foods}}
+                <li>{{.}}</li>
+                {{/foods}}
+            </ul>
+        </script>
+        <script>
+            var template = $('#template').html();
+            var food_items = {"foods": localStorage.getItem("selected").split(",")};
+            var rendered = Mustache.render(template, food_items);
+            $('#target').html(rendered);
+        </script>
+        
+    </body>
+</html>
